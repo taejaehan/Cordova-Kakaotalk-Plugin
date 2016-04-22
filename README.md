@@ -2,11 +2,14 @@ Cordova Plugin KakaoTalk
 ========================
 
 This plugin is modified by combining the two other plguins
-https://github.com/lihak/KakaoTalkCordovaPlugin
-https://github.com/gnustory/cordova_plugin-KakaoLinkPlugin
+
+- https://github.com/lihak/KakaoTalkCordovaPlugin
+
+- https://github.com/gnustory/cordova_plugin-KakaoLinkPlugin
 
 Make sure you've registered your Facebook app with Kakao and have an KAKAO_APP_KEY
-(https://developers.kakao.com)
+
+- https://developers.kakao.com
 
 Cordova Install Note:
 ========================
@@ -14,11 +17,11 @@ Cordova Install Note:
 cordova plugin add https://github.com/taejaehan/cordova-kakaotalk.git --variable KAKAO_APP_KEY=YOUR_KAKAO_APP_KEY
 
 [Android]
-nothing to do ;-)
-But the Android app must register key hash(https://developers.kakao.com/docs/android#getting-started-launch-sample-app)
+* nothing to do ;-)
+* But the Android app must register key hash(https://developers.kakao.com/docs/android#getting-started-launch-sample-app)
 
 [iOS]
-1. Add following code to appDelegate
+* Add following code to appDelegate
 
 ```
 #import <KakaoOpenSDK/KakaoOpenSDK.h>
@@ -34,7 +37,7 @@ But the Android app must register key hash(https://developers.kakao.com/docs/and
 - (void)applicationDidBecomeActive:(UIApplication *)application{[KOSession handleDidBecomeActive];}
 ```
 
-2. Ohter Linker Flags 
+* Ohter Linker Flags 
 open platforms/ios/*.xcodeproj
         Build Settings > Linking > Other Linker Flags > add '-all_load'
 
@@ -117,8 +120,8 @@ KakaoTalk.share({
   });
 ```
 
--Min image width(80)xheight(80)
--weblink(text-link), applink(button-link)
+*Min image width(80)xheight(80).
+*weblink(text-link), applink(button-link).
 
 https://developers.kakao.com/docs/ios#카카오링크
 https://developers.kakao.com/docs/android#카카오링크
