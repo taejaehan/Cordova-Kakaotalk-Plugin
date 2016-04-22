@@ -120,9 +120,8 @@ KakaoTalk.share({
   });
 ```
 
-* Min image width(80)xheight(80)
-* weblink(text-link), applink(button-link)
+- Min image width(80)xheight(80)
+- weblink(text-link), applink(button-link)
 
-* https://developers.kakao.com/docs/ios#카카오링크
-
-* https://developers.kakao.com/docs/android#카카오링크
+- https://developers.kakao.com/docs/ios#카카오링크
+- https://developers.kakao.com/docs/android#카카오링크
