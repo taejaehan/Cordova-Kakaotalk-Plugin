@@ -53,13 +53,13 @@ This plugin adds an object to the window. Right now, you can only login and logo
 Login using the `.login` method:
 ```
 KakaoTalk.login(
-    success: function (result) {
+    function (result) {
       console.log('Successful login!');
       console.log(result);
     },
-    error: function (message) {
+    function (message) {
       console.log('Error logging in');
-    	console.log(message);
+      console.log(message);
     }
 );
 ```
@@ -77,7 +77,7 @@ The login reponse object is defined as:
 
 Logout using the `.logout` method:
 ```
-Kakaotalk.logout(
+KakaoTalk.logout(
 	function() {
 		console.log('Successful logout!');
 	}, function() {
@@ -98,11 +98,11 @@ KakaoTalk.share({
       height : 90,
     },
     weblink :{
-      url : 'your-website url',
+      url : 'YOUR-WEBSITE URL',
       text : 'web사이트로 이동'
     },
     applink :{
-      url : 'your-website url', 
+      url : 'YOUR-WEBSITE URL', 
       text : '앱으로 이동',
     },
     params :{
