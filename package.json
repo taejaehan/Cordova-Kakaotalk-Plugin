@@ -1,0 +1,27 @@
+{
+  "id": "cordova-plugin-htj-kakaotalk",
+  "name": "cordova-plugin-htj-kakaotalk",
+  "version": "1.0.0",
+  "description": "Cordova KakaoTalk Plugin",
+  "cordova": {
+    "id": "cordova-plugin-htj-kakaotalk",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "keywords": [
+    "cordova",
+    "kakao",
+    "kakaotalk",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "TaeJae Han",
+  "license": ""
+}

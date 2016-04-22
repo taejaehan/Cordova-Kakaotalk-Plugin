@@ -1,0 +1,14 @@
+repositories {
+	mavenCentral()
+    maven { url 'http://devrepo.kakao.com:8088/nexus/content/groups/public/' }
+}
+
+dependencies {
+	compile('com.kakao.sdk:kakaotalk:1.1.10@aar') {
+		transitive = true
+	}
+	compile('com.kakao.sdk:kakaolink:1.1.10@aar') {
+		transitive = true
+	}
+	
+}

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+   id="cordova-plugin-htj-kakaotalk"
+   name="cordova-plugin-htj-kakaotalk"
+   version="1.0.0">
+
+    <name>KakaoTalk</name>
+    <description>KakaoTalk Cordova Plugin</description>
+
+	<engines>
+		<engine name="cordova-android" version=">3.9.9" /><!-- Requires Gradle building -->
+	</engines>
+
+    <js-module name="KakaoTalk" src="www/KakaoTalk.js">
+    	<clobbers target="KakaoTalk" />
+    </js-module>
+
+	<preference name="KAKAO_APP_KEY" />
+	<platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="KakaoTalk">
+                <param name="android-package" value="com.htj.plugin.kakao.KakaoTalk" />
+            </feature>
+            <access origin="https://*.kakao.com" />
+            <access origin="https://*.kakao.co.kr" />
+            <access origin="https://*.kakaocdn.net" />
+        </config-file>
+        
+        <source-file src="src/android/kakao_strings.xml" target-dir="res/values" />
+        <config-file target="res/values/kakao_strings.xml" parent="/*">
+            <string name="kakao_app_key">$KAKAO_APP_KEY</string>
+            <string name="kakao_scheme">kakao$KAKAO_APP_KEY</string>
+            <string name="kakaolink_host">kakaolink</string>
+        </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.INTERNET" />
+        </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="application">
+        	<meta-data android:name="com.kakao.sdk.AppKey" android:value="@string/kakao_app_key" />
+        </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="application/activity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="@string/kakao_scheme" android:host="@string/kakaolink_host" />
+            </intent-filter>
+        </config-file>
+
+        <framework src="src/android/kakao.gradle" custom="true" type="gradleReference" />
+		<source-file src="src/android/KakaoTalk.java" target-dir="src/com/htj/plugin/kakao" />
+    </platform>
+    
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="KakaoTalk">
+                <param name="ios-package" value="KakaoTalk" />
+            </feature>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="KAKAO_APP_KEY">
+            <string>$KAKAO_APP_KEY</string>
+        </config-file>
+        <config-file target="*-Info.plist" parent="CFBundleURLTypes">
+            <array>
+                <dict>
+                    <key>CFBundleURLSchemes</key>
+                    <array>
+                        <string>kakao$KAKAO_APP_KEY</string>
+                    </array>
+                </dict>
+            </array>
+        </config-file>
+        <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+          <array>
+            <string>kakao$KAKAO_APP_KEY</string>
+            <string>kakaokompassauth</string>
+            <string>storykompassauth</string>
+            <string>kakaolink</string>
+            <string>kakaotalk-4.5.0</string>
+            <string>kakaostory-2.9.0</string>
+          </array>
+        </config-file>
+        
+        <framework src="QuartzCore.framework" />
+        <framework src="src/ios/KakaoOpenSDK.framework" custom="true" />
+
+        <source-file src="src/ios/KakaoTalk.m" />
+        <header-file src="src/ios/KakaoTalk.h" />
+    </platform>
+</plugin>
