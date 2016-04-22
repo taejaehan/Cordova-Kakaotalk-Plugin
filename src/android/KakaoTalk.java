@@ -156,7 +156,6 @@ public class KakaoTalk extends CordovaPlugin {
 															.build())
 													.addActionInfo(AppActionInfoBuilder
 															.createiOSActionInfoBuilder()
-																	//.setExecuteParam("param1=" + param1 + "&param2=" + param2 + "&param3=" + param3)
 															.setExecuteParam(applinkParam)
 															.build())
 													.setUrl(applinkObj.getString("url"))

@@ -109,8 +109,8 @@
             NSString* applinkText = applinkDic[@"text"];
             if(applinkUrl && applinkText){
                 NSDictionary *params = nil;
-                if(options[@"prams"]){
-                    params = options[@"prams"];
+                if(options[@"params"]){
+                    params = options[@"params"];
                 };
                 KakaoTalkLinkAction *androidAppAction
                 = [KakaoTalkLinkAction createAppAction:KakaoTalkLinkActionOSPlatformAndroid

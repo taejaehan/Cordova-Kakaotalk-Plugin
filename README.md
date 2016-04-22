@@ -1,20 +1,23 @@
-KakaoTalk Cordova Plugin
+Cordova Plugin KakaoTalk
 ========================
 
-A plugman compatible Cordova plugin for the KakaoTalk(https://developers.kakao.com)
+This plugin is modified by combining the two other plguins
+https://github.com/lihak/KakaoTalkCordovaPlugin
+https://github.com/gnustory/cordova_plugin-KakaoLinkPlugin
 
-Make sure you've registered your app with Kakao and to have an KAKAO_APP_KEY
+Make sure you've registered your Facebook app with Kakao and have an KAKAO_APP_KEY
+(https://developers.kakao.com)
 
 Cordova Install Note:
 ========================
 
-[Android]
+cordova plugin add https://github.com/taejaehan/cordova-kakaotalk.git --variable KAKAO_APP_KEY=YOUR_KAKAO_APP_KEY
 
+[Android]
 nothing to do ;-)
 But the Android app must register key hash(https://developers.kakao.com/docs/android#getting-started-launch-sample-app)
 
 [iOS]
-
 1. Add following code to appDelegate
 
 ```
@@ -23,15 +26,17 @@ But the Android app must register key hash(https://developers.kakao.com/docs/and
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
                                        sourceApplication:(NSString *)sourceApplication
                                               annotation:(id)annotation {
-
     ...
     if ([KOSession isKakaoAccountLoginCallback:url]){return [KOSession handleOpenURL:url];}
     ...
-    
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application{[KOSession handleDidBecomeActive];}
 ```
+
+2. Ohter Linker Flags 
+open platforms/ios/*.xcodeproj
+        Build Settings > Linking > Other Linker Flags > add '-all_load'
 
 How to use the plugin
 ========================
@@ -46,12 +51,12 @@ Login using the `.login` method:
 ```
 KakaoTalk.login(
     success: function (result) {
-        console.log('Successful login!');
-		console.log(result);
+      console.log('Successful login!');
+      console.log(result);
     },
     error: function (message) {
-        console.log('Error logging in');
-		console.log(message);
+      console.log('Error logging in');
+    	console.log(message);
     }
 );
 ```
@@ -76,18 +81,44 @@ Kakaotalk.logout(
 		console.log('Error logging out');
 	}
 );
+```
 
 ##### Share
 
 Share using the `.share` method:
 ```
-KakaoTalk.share(description,title,webUrl,imgPath,applink,postId,
+KakaoTalk.share({
+    text : 'Share Message',
+    image : {
+      src : 'https://developers.kakao.com/assets/img/link_sample.jpg',
+      width : 138, 
+      height : 90,
+    },
+    weblink :{
+      url : 'your-website url',
+      text : 'web사이트로 이동'
+    },
+    applink :{
+      url : 'your-website url', 
+      text : '앱으로 이동',
+    },
+    params :{
+      paramKey1 : 'paramVal',
+      param1 : 'param1Value',
+      cardId : '27',
+      keyStr : 'hey'
+    }
+  },
   function (success) {
     console.log('kakao share success');
   },
   function (error) {
     console.log('kakao share error');
   });
-
 ```
-# cordova-kakaotalk
+
+-Min image width(80)xheight(80)
+-weblink(text-link), applink(button-link)
+
+https://developers.kakao.com/docs/ios#카카오링크
+https://developers.kakao.com/docs/android#카카오링크
