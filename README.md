@@ -38,6 +38,7 @@ cordova plugin add https://github.com/taejaehan/cordova-kakaotalk.git --variable
 ```
 
 * Ohter Linker Flags 
+
 open platforms/ios/*.xcodeproj
         Build Settings > Linking > Other Linker Flags > add '-all_load'
 
@@ -120,6 +121,7 @@ KakaoTalk.share({
   });
 ```
 
+- you can use text, image, weblink and applink(params) separately or together
 - Min image width(80)xheight(80)
 - weblink(text-link), applink(button-link)
 - if you use applink, you can set any params(optional)
