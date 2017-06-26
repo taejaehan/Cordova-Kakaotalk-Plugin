@@ -7,7 +7,7 @@ This plugin is modified by combining the two other plguins
 
 - https://github.com/gnustory/cordova_plugin-KakaoLinkPlugin
 
-Make sure you've registered your Facebook app with Kakao and have an KAKAO_APP_KEY
+Make sure you've registered your Kakao app with Kakao and have an KAKAO_APP_KEY
 
 - https://developers.kakao.com
 
@@ -47,7 +47,7 @@ How to use the plugin
 
 ### Usage
 
-This plugin adds an object to the window. Right now, you can only login and logout.
+This plugin adds an object to the window. Right now, you can login, logout and share.
 
 ##### Login
 
